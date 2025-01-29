@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request, url_for, flash, session, redirect, make_response
 import os
-from datetime import datetime
 
 from flask_assets import Environment, Bundle
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -27,7 +26,6 @@ app.secret_key = os.urandom(24)
 
 @app.route('/')
 def index():
-  print(session)
   if 'user_id' in session:
     return redirect(url_for('main', user_id=session['user_id']))
   return redirect(url_for('login'))
@@ -67,7 +65,6 @@ def login():
 
     if user and check_password_hash(user[3], password):
       session['user_id'] = user[0]
-      print(session)
       return render_template('main.html', name=user[1], button_text="Logout")
 
     flash('Invalid email or password', 'error')

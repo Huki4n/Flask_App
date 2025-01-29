@@ -1,9 +1,13 @@
 import psycopg2
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 DB_CONFIG = {
-  'dbname': 'Flask_app',
-  'user': 'postgres',
-  'password': 'qweasdFGzxc34215',
+  'dbname': os.getenv('DATABASE_NAME'),
+  'user': os.getenv('DATABASE_USER'),
+  'password': os.getenv('DATABASE_PASSWORD'),
   'host': 'localhost'
 }
 
