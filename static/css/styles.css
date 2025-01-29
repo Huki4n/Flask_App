@@ -1,0 +1,319 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+:focus, :active {
+  outline: none;
+}
+
+a :focus, a :active {
+  outline: none;
+}
+
+nav, footer, header, aside {
+  display: block;
+}
+
+html, body {
+  width: 100%;
+  line-height: 1;
+  font-size: 16px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input, button, textarea {
+  font-family: inherit;
+  color: inherit;
+}
+
+input ::-ms-clear {
+  display: none;
+}
+
+button {
+  background: none;
+  cursor: pointer;
+}
+
+button ::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a, a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 24px;
+  font-weight: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+.header {
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  padding: 24px;
+  justify-content: space-between;
+}
+.header__nav {
+  display: flex;
+  gap: 4rem;
+}
+.header__link {
+  position: relative;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.2s ease-in-out;
+}
+.header__link:before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -3px;
+  left: 0;
+  transition: width 0.2s ease-in-out;
+  background: rgb(227, 0, 0);
+}
+.header__link:hover {
+  color: rgb(227, 0, 0);
+}
+.header__link:hover:before {
+  width: 100%;
+}
+
+.layout {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  width: 1072px;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login {
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  padding: 32px;
+  background: #a3a4ff;
+  border-radius: 16px;
+  max-width: 600px;
+  width: 600px;
+}
+.login__form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+}
+.login__input-block {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.login__input {
+  color: black;
+  font-size: 16px;
+  border-radius: 12px;
+  padding: 4px 12px;
+  outline: 2px solid #020fef;
+}
+.login__input:focus {
+  outline: 2px solid #d30000;
+}
+.login__button {
+  background-color: #020fef;
+  border-radius: 12px;
+  width: 100%;
+  padding: 8px 0;
+  transition: background-color 0.3s ease-in-out;
+}
+.login__button:hover, .login__button:focus {
+  background-color: #d30000;
+}
+.login__redirect-register {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.login__redirect-register__link {
+  position: relative;
+  color: #020fef;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+.login__redirect-register__link:before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -3px;
+  left: 50%;
+  transition: width 0.2s ease-in-out, left 0.2s ease-in-out;
+  background: #d30000;
+}
+.login__redirect-register__link:hover {
+  color: #d30000;
+}
+.login__redirect-register__link:hover:before {
+  left: 0;
+  width: 100%;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.register {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  padding: 32px;
+  background: #a3a4ff;
+  border-radius: 16px;
+  max-width: 600px;
+  width: 600px;
+  color: #ffffff;
+}
+.register__form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+}
+.register__input-block {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.register__label {
+  /* Здесь можно добавить дополнительные стили для меток, если необходимо */
+}
+.register__input {
+  color: black;
+  font-size: 16px;
+  border-radius: 12px;
+  padding: 4px 12px;
+  outline: 2px solid #020fef;
+}
+.register__input:focus {
+  outline: 2px solid #d30000;
+}
+.register__button {
+  background-color: #020fef;
+  border-radius: 12px;
+  width: 100%;
+  padding: 8px 0;
+  transition: background-color 0.3s ease-in-out;
+}
+.register__button:hover, .register__button:focus {
+  background-color: #d30000;
+}
+.register__redirect-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.register__redirect-login__link {
+  position: relative;
+  color: #020fef;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+.register__redirect-login__link:before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -3px;
+  left: 50%;
+  transition: width 0.2s ease-in-out, left 0.2s ease-in-out;
+  background: #d30000;
+}
+.register__redirect-login__link:hover {
+  color: #d30000;
+}
+.register__redirect-login__link:hover:before {
+  left: 0;
+  width: 100%;
+}
+
+body {
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #333333;
+}
+
+.form {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.list-errors {
+  margin: 0;
+  padding: 16px 0 0 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.error {
+  font-size: 24px;
+  color: red;
+  text-decoration: none;
+}
+
+/*# sourceMappingURL=styles.css.map */

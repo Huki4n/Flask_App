@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Регистрация{% endblock %}
+{% block content %}
+    <div class="wrapper">
+      <div class="register">
+        <h1>Register</h1>
+        <form method="POST" class="register__form">
+          <div class="register__input-block">
+            <label for="username" class="register__label">Username</label>
+            <input class="register__input" type="text" id="username" name="username" tabindex="1" required>
+          </div>
+          <div class="register__input-block">
+            <label for="email" class="register__label">Email</label>
+            <input class="register__input" type="email" id="email" name="email" tabindex="2" required>
+          </div>
+          <div class="register__input-block">
+            <label for="password" class="register__label">Password</label>
+            <input class="register__input" type="password" id="password" name="password" tabindex="3" required>
+          </div>
+          <button type="submit" class="register__button" tabindex="4">Register</button>
+          {% if error %}
+            <p style="color: red;">{{ error }}</p>
+          {% endif %}
+        </form>
+        <p class="register__redirect-login">
+          Already have an account?
+          <a href="{{ url_for('login') }}" class="register__redirect-login__link">Login here</a>.
+        </p>
+      </div>
+    </div>
+{% endblock %}

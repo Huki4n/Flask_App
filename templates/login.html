@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Авторизация{% endblock %}
+{% block content %}
+    <div class="wrapper">
+      <div class="login">
+        <h1>Login</h1>
+        <form method="POST" class="login__form" >
+          <div class="login__input-block">
+            <label for="email" class="login__label">Email</label>
+            <input class="login__input" type="email" id="email" name="email" tabindex="1" required>
+          </div>
+          <div class="login__input-block">
+            <label for="password" class="login__label">Password</label>
+            <input class="login__input" type="password" id="password" name="password" tabindex="2" required>
+          </div>
+          <button type="submit" class="login__button" tabindex="3">Login</button>
+
+          {% if error %}
+            <p style="color: red;">{{ error }}</p>
+          {% endif %}
+
+        </form>
+        <p class="login__redirect-register">
+          Don't have an account?
+          <a href="{{ url_for('register') }}" class="login__redirect-register__link">Register here</a>.
+        </p>
+      </div>
+    </div>
+{% endblock %}

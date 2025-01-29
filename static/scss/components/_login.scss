@@ -1,0 +1,102 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login {
+  color: #ffffff;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+
+  padding: 32px;
+  background: #a3a4ff;
+  border-radius: 16px;
+
+  max-width: 600px;
+  width: 600px;
+
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    align-items: center;
+  }
+  &__input-block {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  &__label {
+
+  }
+  &__input {
+    color: black;
+
+    font-size: 16px;
+    border-radius: 12px;
+
+    padding: 4px 12px;
+
+    outline: 2px solid #020fef;
+
+    &:focus {
+      outline: 2px solid #d30000;
+    }
+  }
+  &__button {
+    background-color: #020fef;
+    border-radius: 12px;
+
+    width: 100%;
+    padding: 8px 0;
+
+    transition: background-color 0.3s ease-in-out;
+
+    &:hover, &:focus {
+      background-color: #d30000;
+    }
+  }
+
+  &__redirect-register {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+
+    &__link {
+      position: relative;
+      color: #020fef;
+
+      text-decoration: none;
+      transition: color 0.2s ease-in-out;
+
+      &:before {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 1px;
+
+        bottom: -3px;
+        left: 50%;
+
+        transition: width 0.2s ease-in-out, left 0.2s ease-in-out;
+        background: #d30000;
+      }
+
+      &:hover {
+        color: #d30000;
+
+        &:before {
+          left: 0;
+          width: 100%;
+        }
+      }
+    }
+  }
+}

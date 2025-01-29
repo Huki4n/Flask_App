@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block title %}Аккаунт{% endblock %}
+{% block content %}
+    <h2>Добро пожаловать, {{ first_name }} {{ last_name }}!</h2>
+    <p>Дата рождения: {{ birth_date }}</p>
+    <p>Увлечения: {{ hobbies }}</p>
+    <img src="{{ avatar_url }}" alt="Avatar" style="max-width:200px;">
+{% endblock %}

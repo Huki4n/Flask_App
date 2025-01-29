@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Flask App{% endblock %}</title>
+    {% assets "base_styles" %}
+      <link rel="stylesheet" type="text/css" href="{{ ASSET_URL }}">
+    {% endassets %}
+</head>
+<body>
+    <div class="layout">
+      <header class="header">
+          <h1>Flask App</h1>
+          <nav class="header__nav">
+              <a class="header__link" href="{{ url_for('index') }}">Главная</a>
+              <a class="header__link" href="{{ url_for('register') }}">Регистрация</a>
+          </nav>
+          <div>
+            <a href="{{ url_for('login' if button_text == 'Login' else 'register') }}">
+              {{ button_text | default('Login') }}
+            </a>
+          </div>
+      </header>
+      <main class="main">
+          {% block content %}{% endblock %}
+      </main>
+      <footer class="footer">
+          <p>The best site </p>
+      </footer>
+    </div>
+</body>
+</html>

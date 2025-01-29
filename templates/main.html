@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Главная{% endblock %}
+{% block content %}
+  {{ super() }}
+  {#    {% set button_text = "Click Me!" %}#}
+  {#    {{ super() }}#}
+  <div class="wrapper">
+    <div>
+      {% if name %}
+        <p>Hello {{ name }}</p>
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}
