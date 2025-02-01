@@ -1,16 +1,18 @@
 .layout {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  row-gap: 32px;
+
   height: 100vh;
-  display: flex;
-  flex-direction: column;
-
-  width: 1072px;
 }
-
 
 .main {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 
-  flex-grow: 1;
+  &__wrapper {
+    max-width: 1072px;
+  }
 }

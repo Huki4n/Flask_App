@@ -13,7 +13,7 @@ DB_CONFIG = {
 
 
 class Database:
-  def __init__(self,):
+  def __init__(self, ):
     conn = self.get_db_connection()
     cur = conn.cursor()
     cur.execute('''
@@ -21,7 +21,9 @@ class Database:
               id SERIAL PRIMARY KEY,
               username VARCHAR(50) NOT NULL,
               email VARCHAR(100) NOT NULL,
-              password_hash VARCHAR(256) NOT NULL
+              password_hash VARCHAR(256) NOT NULL,
+              tel VARCHAR(20),
+              avatar VARCHAR(255)
           )
       ''')
     conn.commit()
@@ -51,3 +53,43 @@ class Database:
     cur.close()
     conn.close()
     return user
+
+  def get_user_by_id(self, user_id):
+    conn = self.get_db_connection()
+    cur = conn.cursor()
+    cur.execute('SELECT * FROM users WHERE id = %s', (user_id,))
+    user = cur.fetchone()
+    cur.close()
+    conn.close()
+    return user
+
+  def update_user_info(self, user_id, new_username, new_email, new_tel):
+    conn = self.get_db_connection()
+    cur = conn.cursor()
+    cur.execute('''
+          UPDATE users
+          SET username = %s, email = %s, tel = %s
+          WHERE id = %s
+      ''', (new_username, new_email, new_tel, user_id))
+    conn.commit()
+    cur.close()
+    conn.close()
+
+  def update_user_avatar(self, user_id, new_avatar):
+    conn = self.get_db_connection()
+    cur = conn.cursor()
+    cur.execute('''
+          UPDATE users
+          SET avatar = %s
+          WHERE id = %s
+      ''', (new_avatar, user_id))
+    conn.commit()
+
+    cur.execute('''
+            SELECT avatar FROM users WHERE id = %s
+        ''', (user_id,))
+
+    avatar = cur.fetchone()[0]
+    cur.close()
+    conn.close()
+    return avatar

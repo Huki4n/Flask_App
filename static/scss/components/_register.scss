@@ -20,6 +20,8 @@
   color: #ffffff;
 
   &__form {
+    max-width: 225px;
+
     display: flex;
     flex-direction: column;
     gap: 24px;

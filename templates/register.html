@@ -8,19 +8,25 @@
           <div class="register__input-block">
             <label for="username" class="register__label">Username</label>
             <input class="register__input" type="text" id="username" name="username" tabindex="1" required>
+             {% if errors['username'] %}
+                <p style="color: red;">{{ errors['username'] }}</p>
+             {% endif %}
           </div>
           <div class="register__input-block">
             <label for="email" class="register__label">Email</label>
             <input class="register__input" type="email" id="email" name="email" tabindex="2" required>
+            {% if errors['email'] %}
+                <p style="color: red;">{{ errors['email'] }}</p>
+            {% endif %}
           </div>
           <div class="register__input-block">
             <label for="password" class="register__label">Password</label>
             <input class="register__input" type="password" id="password" name="password" tabindex="3" required>
+            {% if errors['password'] %}
+                <p style="color: red;">{{ errors['password'] }}</p>
+            {% endif %}
           </div>
           <button type="submit" class="register__button" tabindex="4">Register</button>
-          {% if error %}
-            <p style="color: red;">{{ error }}</p>
-          {% endif %}
         </form>
         <p class="register__redirect-login">
           Already have an account?
