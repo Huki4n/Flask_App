@@ -65,6 +65,7 @@ def index():
 @app.route('/register', methods=['GET', 'POST'])
 def register():
   errors = {}
+
   if request.method == 'POST':
     username = request.form.get('username')
     email = request.form.get('email')
@@ -100,17 +101,22 @@ def register():
 # Вход
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+  errors = {}
   if request.method == 'POST':
+
     email = request.form.get('email')
     password = request.form.get('password')
 
-    if 'user' not in user_cache:
-      user = db.get_user_by_email(email)
-      user_cache['user'] = user
-    else:
-      user = user_cache['user']
+    user = db.get_user_by_email(email)
 
-    if user and check_password_hash(user[3], password):
+    if not user:
+      errors['login'] = 'Account by this email does not exist.'
+    else:
+      if not check_password_hash(user[3], password):
+        errors['password'] = 'Incorrect password.'
+
+    if not errors and user and check_password_hash(user[3], password):
+
       session['user_id'] = [user[0], user[1]]
       resp = make_response(redirect(url_for('main')))
 
@@ -119,9 +125,9 @@ def login():
 
       return resp
 
-    return render_template('login.html', error='Invalid email or password')
+    return render_template('login.html', errors=errors)
 
-  return render_template('login.html')
+  return render_template('login.html', errors=errors)
 
 
 # Выход
@@ -154,19 +160,14 @@ def main():
 @app.route('/profile', methods=['GET', 'POST'])
 def profile():
   user_id = request.cookies.get('userid')
-
-  if 'user' in user_cache:
-    user = user_cache['user']
-  else:
-    user = db.get_user_by_id(user_id)
+  user = db.get_user_by_id(user_id)
 
   username = user[1]
   email = user[2]
   tel = user[4]
   avatar = user[5]
-
   filename = "placeholder.png"
-  print(user)
+
   if request.method == 'POST':
     if 'user' in request.form:
       username = request.form.get('user')
@@ -284,8 +285,6 @@ def search():
 
 db = Database()
 validation = Validation()
-user_cache = {}
-posts_cache = {}
 
 if __name__ == '__main__':
   app.run(debug=True)

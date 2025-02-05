@@ -12,14 +12,15 @@
           <div class="login__input-block">
             <label for="password" class="login__label">Password</label>
             <input class="login__input" type="password" id="password" name="password" tabindex="2" required>
+            {% if errors['password'] %}
+              <p style="color: red;">{{ errors['password'] }}</p>
+            {% endif %}
           </div>
           <button type="submit" class="login__button" tabindex="3">Login</button>
-
-          {% if error %}
-            <p style="color: red;">{{ error }}</p>
-          {% endif %}
-
         </form>
+        {% if errors['login'] %}
+          <p style="color: red; margin: -16px 0">{{ errors['login'] }}</p>
+        {% endif %}
         <p class="login__redirect-register">
           Don't have an account?
           <a href="{{ url_for('register') }}" class="login__redirect-register__link">Register here</a>.

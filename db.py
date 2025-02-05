@@ -239,7 +239,7 @@ class Database:
           JOIN users u ON p.author_id = u.id
           JOIN post_tags pt ON p.id = pt.post_id
           JOIN tags t ON pt.tag_id = t.id
-          WHERE t.name = %s
+          WHERE t.name ILIKE %s
           GROUP BY p.id, u.id
       ''', (tag_name,))
 
