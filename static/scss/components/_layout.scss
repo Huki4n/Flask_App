@@ -4,15 +4,7 @@
   row-gap: 32px;
 
   height: 100vh;
+
+  overflow-x: hidden;
 }
 
-.main {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  &__wrapper {
-    max-width: 1072px;
-  }
-}

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Аккаунт{% endblock %}
+{% block content %}
+  {{ super() }}
+  <div class="profile">
+    <div class="profile__left">
+      <h3><span style="color: #d30000;">{{ username }}</span> user profile</h3>
+      <form class="profile__form" method="POST">
+        <div class="profile__input-block">
+          <label for="user" class="profile__label">Name</label>
+          <input type="text" name="user" id="user" class="profile__input"  value="{{ username }}" readonly/>
+        </div>
+        <div class="profile__input-block">
+          <label for="email" class="profile__label">Email</label>
+          <input type="email" name="email" id="email" class="profile__input" value="{{ email }}" readonly/>
+        </div>
+        <div class="profile__input-block">
+          <label for="tel" class="profile__label">Phone number</label>
+          <input type="tel" name="tel" id="tel" class="profile__input" value="{{ tel }}" readonly/>
+        </div>
+      </form>
+    </div>
+    <div class="profile__right">
+        <img
+          class="profile__avatar"
+          src="{{avatar}}"
+          id="preview"
+          alt="Avatar"
+        />
+    </div>
+  </div>
+{% endblock %}

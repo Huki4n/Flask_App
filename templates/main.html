@@ -1,14 +1,38 @@
 {% extends "base.html" %}
 {% block title %}Главная{% endblock %}
+
 {% block content %}
   {{ super() }}
-  {#    {% set button_text = "Click Me!" %}#}
-  {#    {{ super() }}#}
-  <div class="wrapper">
-    <div>
-      {% if name %}
-        <p>Hello {{ name }}</p>
+
+  <div class="main__wrapper">
+    <!-- Кнопка для открытия модального окна -->
+    <div class="main__header">
+      <p>Hello <span style="color: #d30000;">{{ name }}!</span></p>
+      <search>
+        <form action="/search" method="GET" class="main__form">
+          <input type="search" name="tags-search" class="main__search" placeholder="Search post by tag" value="{{ search_tag | default('') }}"/>
+          <button type="submit" class="main__button">Search</button>
+        </form>
+      </search>
+      <button type="button" class="create-modal-button" id="openModalBtn" onclick="openModal('postModal', this)">
+        Create post
+      </button>
+    </div>
+
+    <div class="main__posts">
+      {% if posts|length != 0 %}
+        {% for post in posts %}
+         {% include 'components/post.html' %}
+        {% endfor %}
+      {% else %}
+        <span>No posts by tag: {{ search_tag }}</span>
       {% endif %}
     </div>
+
+
+    {% include 'modals/create_post.html' %}
+    {% include 'modals/edit_post.html' %}
+    <!-- Включение шаблона модального окна -->
   </div>
+
 {% endblock %}

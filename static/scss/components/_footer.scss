@@ -8,9 +8,12 @@
   display: flex;
   justify-content: center;
 
+  padding: 0 24px 0 8px;
+
   &__wrapper {
     padding: 24px;
-    width: 1072px;
+    max-width: 1072px;
+    width: 100%;
 
     background: #a3a4ff;
 

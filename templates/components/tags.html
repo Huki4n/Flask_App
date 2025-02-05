@@ -1,0 +1,14 @@
+<input type="hidden" name="tags" id="hidden-tags">
+<div class="tags">
+  <div class="tags__input">
+    <input type="text" name="tag" id="tag-input" placeholder="Enter tag name" class="modal__form__input tags__name-input" />
+    <button class="tags__button btn-clear" type="button"  onclick="clearInput()">Clear Input</button>
+    <button class="tags__button btn-add" type="button" onclick="addTag()">Add tag</button>
+  </div>
+  <div class="tags__view">
+    <span class="tags__title">Tags: </span>
+    <ul class="tags__list" id="tags-list">
+    </ul>
+    <div class="tags__error" id="tags-error"></div>
+  </div>
+</div>

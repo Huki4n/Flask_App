@@ -1,0 +1,164 @@
+@use "../../abstracts/variables" as *;
+
+.overlay {
+  display: none;
+  justify-content: center;
+  align-items: center;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.modal {
+  color: $white;
+
+  max-width: 500px;
+  width: 100%;
+
+  &__content {
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    background-color: $element-bg;
+    border-radius: $base-border-radius;
+    padding: 12px 16px;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+
+    &__input {
+      background: $white;
+      outline: 2px solid $blue;
+      padding: 8px 12px;
+
+      color: black;
+
+      border-radius: $base-border-radius;
+
+      font-size: 14px;
+
+      &::placeholder {
+        color: #656565;
+      }
+    }
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.close {
+  font-size: 20px;
+}
+
+.btn {
+  padding: 4px 12px;
+  border-radius: $base-border-radius;
+  transition: background-color 0.15s ease-in-out;
+
+  &-close {
+    background-color: $red;
+
+    &:hover {
+      background-color: $hover-red;
+    }
+  }
+  &-create {
+    background-color: $blue;
+
+    &:hover {
+      background-color: $hover-blue;
+    }
+  }
+
+  &-delete {
+    background-color: $blue;
+
+    &:hover {
+      background-color: $red;
+    }
+  }
+}
+
+.image-input {
+  display: none;
+
+}
+
+.image-input-label {
+  position: relative;
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+
+  max-width: 468px;
+  height: 300px;
+  width: 100%;
+
+  border: 2px solid $blue;
+  border-radius: $base-border-radius;
+  background-color: $white;
+
+  transition: background-color 0.3s ease-in-out;
+
+  &:hover {
+    background-color: #e1e1e1;
+  }
+}
+
+.image-block {
+  cursor: pointer;
+  background-color: $blue;
+  border-radius: $base-border-radius;
+  transition: background-color 0.15s ease-in-out;
+
+  padding: 8px 16px;
+
+  &:hover {
+    background-color: $red;
+  }
+
+  &__icon {
+    max-width: 100px;
+    max-height: 100px;
+  }
+
+  &__label {
+    cursor: pointer;
+  }
+}
+
+.delete-file {
+  z-index: 2;
+  display: none;
+
+  color: black;
+  font-size: 25px;
+
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}

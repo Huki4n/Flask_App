@@ -26,8 +26,12 @@
                 <p style="color: red;">{{ errors['password'] }}</p>
             {% endif %}
           </div>
+
           <button type="submit" class="register__button" tabindex="4">Register</button>
         </form>
+        {% if errors['register'] %}
+            <p style="color: red; margin: -16px 0">{{ errors['register'] }}</p>
+        {% endif %}
         <p class="register__redirect-login">
           Already have an account?
           <a href="{{ url_for('login') }}" class="register__redirect-login__link">Login here</a>.

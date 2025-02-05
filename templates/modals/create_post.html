@@ -1,0 +1,38 @@
+<div
+  class="overlay"
+  id="postModal"
+  tabindex="-1"
+>
+  <div class="modal">
+    <div class="modal__content">
+      <div class="modal__header">
+        <h4 class="modal__title" id="exampleModalLabel">Creating post</h4>
+        <button type="button" class="close" onclick="closeModal('postModal')">
+          <span>&times;</span>
+        </button>
+      </div>
+      <div class="modal__body">
+        <form method="POST" action="{{ url_for('create_post') }}" id="postForm" class="modal__form" enctype="multipart/form-data">
+          <input type="file" id="file" name="image_file" class="image-input" accept="image/*" onchange="displayFileName('file', 'file-name', 'delete-file')">
+
+          <label for="file" class="image-input-label">
+            <img src="/static/uploads/upload_icon.png" class="image-block__icon" alt="">
+            <div class="image-block">
+              <label for="file" class="image-block__label" id="file-name">Upload post image</label>
+            </div>
+            <span class="delete-file" id="delete-file" onclick="deleteFile(event, 'file', 'file-name', 'delete-file')">&times;</span>
+          </label>
+
+          <input type="text" name="title" placeholder="Title" class="modal__form__input" required>
+          <textarea name="content" placeholder="Enter text..." maxlength="500" class="modal__form__input" required></textarea>
+
+          {% include 'components/tags.html' %}
+        </form>
+      </div>
+      <div class="modal__footer">
+        <button type="button" class="btn btn-close" onclick="closeModal('postModal')">Close</button>
+        <button type="submit" form="postForm" class="btn btn-create">Create</button>
+      </div>
+    </div>
+  </div>
+</div>

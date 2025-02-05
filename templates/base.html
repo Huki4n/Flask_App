@@ -11,26 +11,26 @@
     <div class="layout">
       <header class="header">
         <div class="header__wrapper">
-          <a href="{{ url_for('index') }}">
+          <a href="{{ url_for(logo_link | default('index')) }}">
             <h1 class="header__logo">
               Flask App
             </h1>
           </a>
-          <nav class="header__nav">
-              <a class="header__link" href="{{ url_for('index') }}">Главная</a>
-              <a class="header__link" href="{{ url_for('account') }}">Аккаунт</a>
-          </nav>
-          <div>
-            <a href="{{ url_for('login') }}" class="header__button">
-              {{ button_text | default('Sign in') }}
-            </a>
-          </div>
+          {% if user_signin %}
+            <nav class="header__nav">
+              <a class="header__link" href="{{ url_for('main') }}">Main</a>
+              <a class="header__link" href="{{ url_for('profile') }}">Profile</a>
+            </nav>
+            <div>
+              <a href="{{ url_for('logout')}}" class="header__button">
+                Logout
+              </a>
+            </div>
+          {% endif %}
         </div>
       </header>
-      <main class="main">
-        <div class="main__wrapper">
-          {% block content %}{% endblock %}
-        </div>
+      <main class="main" style="justify-content: {% if logo_link %} flex-start {% else %} center {% endif %}">
+        {% block content %}{% endblock %}
       </main>
       <footer class="footer">
         <div class="footer__wrapper">
@@ -38,6 +38,6 @@
         </div>
       </footer>
     </div>
-    <script src="../static/scripts/avatar.js"></script>
+    <script src="../static/scripts/index.js"></script>
 </body>
 </html>

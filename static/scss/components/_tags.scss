@@ -1,0 +1,89 @@
+@use "../abstracts/variables" as *;
+
+.tags {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  &__view {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  &__input {
+    display: flex;
+    gap: 16px;
+  }
+
+  &__name-input {
+    color: black;
+
+  }
+
+  &__button {
+    padding: 4px 8px;
+
+    border-radius: $base-border-radius;
+
+    transition: background-color 0.15s ease-in-out;
+  }
+
+  &__title {
+    position: relative;
+    top: -1px;
+  }
+
+  &__error {
+    display: none;
+    color: #dc0000;
+    font-size: 15px;
+  }
+}
+
+.btn {
+  &-clear {
+    background-color: $red;
+
+    &:hover {
+      background-color: $hover-red;
+    }
+  }
+
+  &-add {
+    background-color: $blue;
+
+    &:hover {
+      background-color: $hover-blue;
+    }
+  }
+}
+
+.tag {
+  font-size: 13px;
+
+  color: black;
+
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  background-color: $white;
+  border-radius: $base-border-radius;
+  padding: 4px 10px;
+  outline: 1px solid $red;
+}
+
+.delete-tag {
+  cursor: pointer;
+
+  position: relative;
+  color: black;
+}
