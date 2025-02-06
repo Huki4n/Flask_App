@@ -83,7 +83,7 @@ function openModal(id, element) {
 
         // Добавляем теги в список
         postTags.forEach(tag => {
-            if(tag) {
+            if (tag) {
                 const li = document.createElement('li');
                 li.classList.add('tag');
                 li.innerHTML = `
@@ -140,8 +140,9 @@ function handleSubmitDeletePostForm(event){
 }
 
 // Функция для удаления тега
-function deleteTag(element, type) {
+function deleteTag(element, type='') {
     const tagElement = element.closest('.tag');
+    console.log(tagElement)
     const tagValue = tagElement.querySelector('div').textContent.trim();
 
     const hiddenInput = document.getElementById(`${type}hidden-tags`);
@@ -196,7 +197,7 @@ function addTag(type= '') {
     tagElement.classList.add('tag');
     tagElement.innerHTML = `
         <div>${tagName}</div>
-        <span onclick="deleteTag(this, type)" class="delete-tag">&times;</span>
+        <span onclick="deleteTag(this, '${type}')" class="delete-tag">&times;</span>
     `;
 
     // Очищаем поле ошибки при успешном добавлении

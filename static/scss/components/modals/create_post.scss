@@ -137,6 +137,7 @@
 
   padding: 8px 16px;
 
+  max-width: 300px;
   &:hover {
     background-color: $red;
   }
@@ -148,6 +149,8 @@
 
   &__label {
     cursor: pointer;
+    max-width: 300px;
+    text-overflow: ellipsis;
   }
 }
 

@@ -108,6 +108,7 @@
   border-radius: 16px;
   transition: background-color 0.15s ease-in-out;
   padding: 8px 16px;
+  max-width: 300px;
 }
 .image-block:hover {
   background-color: #d30000;
@@ -118,6 +119,8 @@
 }
 .image-block__label {
   cursor: pointer;
+  max-width: 300px;
+  text-overflow: ellipsis;
 }
 
 .delete-file {
